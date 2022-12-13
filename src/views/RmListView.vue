@@ -16,7 +16,7 @@
       <b>Página actual:</b> {{ charactersStore.currPage }}
     </p>
     <div class="list">
-        <CharacterItem v-for="character in charactersStore.characters" :key="character.id" :data="character"> </CharacterItem>
+        <CharacterItem v-for="character in charactersStore.characters" :key="character.id" :dataid="character.id"> </CharacterItem>
     </div>
   </main>
 </template>

@@ -14,7 +14,6 @@ const useCharactersStore = defineStore('characters', {
    
   },
   actions: {
-   
     async getCharacters(page?: number){
       try {
         let url = (page)? `https://rickandmortyapi.com/api/character?page=${page}` : 'https://rickandmortyapi.com/api/character'

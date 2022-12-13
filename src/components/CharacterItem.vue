@@ -1,32 +1,36 @@
 <script setup lang="ts">
-const props = defineProps({
-  data: String,
-});
+  const props = defineProps({
+    dataid: Number,
+  });
+
+  const charactersStore = useCharactersStore();
+
+  const char = charactersStore.characters.filter(char => char.id == props.dataid)
 </script>
 
 <template>
   <div class="character-item">
     <!-- {{character}} -->
-    <img :src="data.image" />
+    <img :src="char.image" />
     <div class="item-title">
-      <h1>{{ data.name }}</h1>
-      <span class="status" :class="`status-${data.status}`"></span>
+      <h1>{{ char.name }}</h1>
+      <span class="status" :class="`status-${char.status}`"></span>
     </div>
-    <!-- {{ data.url }} -->
+    <!-- {{ char.url }} -->
     
-    <p>Especie: {{ data.species }}</p>
-    <p>Género: {{ data.gender }}</p>
-    <p>Origen: {{ data.origin.name }}</p>
-    <p>Ubicación actual: {{ data.location.name }}</p>
+    <p>Especie: {{ char.species }}</p>
+    <p>Género: {{ char.gender }}</p>
+    <p>Origen: {{ char.origin.name }}</p>
+    <p>Ubicación actual: {{ char.location.name }}</p>
     <!-- <p>Episodios: 
             <ul>
-                <li v-for="ep in data.episode" :key="ep">
+                <li v-for="ep in char.episode" :key="ep">
                     Episodio {{ep}}
                 </li>
             </ul>
         </p> -->
-    <p>Fecha de creación: {{ data.created }}</p>
-    <p><RouterLink :to="`/detail/${data.id}`">Saber más</RouterLink></p>
+    <p>Fecha de creación: {{ char.created }}</p>
+    <p><RouterLink :to="`/detail/${char.id}`">Saber más</RouterLink></p>
   </div>
 </template>
 
