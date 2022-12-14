@@ -11,6 +11,6 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  base: "/BTCONLVUE2211-vue-router-pinia"
+  base: '/BTCONLVUE2211-vue-router-pinia/'
 
 })
